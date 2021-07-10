@@ -5,7 +5,7 @@ const Sushi = (props) => {
     <Fragment>
         <div className="sushi">
         <div className="plate" 
-            onClick={/* Give me a callback! */ null}>
+            onClick={() => props.eatSushi(props.sushiDetail)}>
           { 
            props.sushiDetail.eaten ?
               null
