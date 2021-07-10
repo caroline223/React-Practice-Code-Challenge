@@ -30,7 +30,7 @@ class App extends Component {
     })
   }
 
-  handleMoreSushi = (event) => {
+  handleMoreSushi = () => {
     this.setState({
       startIndex: this.state.startIndex+4
     })
@@ -55,14 +55,18 @@ class App extends Component {
    
   }
 
+  filterEatenSushis(){
+    return this.state.renderedSushis.filter(sushi => sushi.eaten)
+  }
+
   
   
 
   render() {
     return (
       <div className="app">
-        <SushiContainer handleMoreSushi={this.handleMoreSushi} sushis={this.sushiDisplay()} />
-        <Table balance={this.state.balance} eatSushi={this.eatSushi} />
+        <SushiContainer handleMoreSushi={this.handleMoreSushi} sushis={this.sushiDisplay()} eatSushi={this.eatSushi} />
+        <Table balance={this.state.balance} eatenSushis={this.filterEatenSushis()} />
       </div>
     );
   }
